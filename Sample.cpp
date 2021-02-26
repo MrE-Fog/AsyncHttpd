@@ -26,17 +26,17 @@ IAsyncHttpServer::HANDLER_RESULT handler(IAsyncHttpServer::REQUEST* req, LBUF* l
 		return IAsyncHttpServer::HR_COMPLETED;
 	}
 
-	//交给默认处理
+	//let the default handler do the work
 	return IAsyncHttpServer::HR_DEFAULT;
 
-	//发送简单内容
+	//send a simple response
 	lbuf->len = sprintf(lbuf->buf, "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nContent-Length: %d\r\n\r\n%s", 2, "ok");
 	return IAsyncHttpServer::HR_COMPLETED;
 
-	//异步处理
-	//...
+	//Asynchronous handling
+	//Create a thead to do the handling, send a ASYNC_NOTIFY_MSG through local udp when finish.
+	//Return IAsyncHttpServer::HR_ASYNC immediately.
 	return IAsyncHttpServer::HR_ASYNC;
-	//在其他线程中处理数据并通过UDP包ASYNC_NOTIFY_MSG返回处理结果
 }
 
 int main()
