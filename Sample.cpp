@@ -21,7 +21,7 @@ IAsyncHttpServer::HANDLER_RESULT handler(IAsyncHttpServer::REQUEST* req, LBUF* l
 
 	if (lbuf->len == 0) {
 		//the net work connection failed
-		//you should clear any asynchronous operation for the specific callback_ptr
+		//you should clear any asynchronous operation for the specific skt_ptr
 		//...
 		return IAsyncHttpServer::HR_COMPLETED;
 	}
