@@ -1,6 +1,8 @@
 # AsyncHttpd
 AsyncHttpd is a foundational framework library for C++ programmers to  build a high performance non-block http server without any knowledge of sockets or network. Current build is for Windows x64.
 
+The purpose of this library is to provide a way for C++ programmers to easily build a website much faster than PHP, Java, ... This library can also be embeded into your own desktop apps, without any configuration.
+
 Users of this library just write a C function (handler) to handle parsed http request and put the result in the provided buffer, then create and run the framework which will callback your customized function.
 
 The framework has a default handler, your customized handler can just return HR_DEFAULT if you don't want handle the request.
